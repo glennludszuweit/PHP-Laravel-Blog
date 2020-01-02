@@ -19,3 +19,7 @@ Route::get('/contact', 'PublicController@contact');
 Route::post('/contact', 'PublicController@contactPost');
 
 Route::get('/post/{id}', 'PublicController@singlePost');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
