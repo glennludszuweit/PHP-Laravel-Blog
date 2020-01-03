@@ -16,9 +16,10 @@ Route::get('/', 'PublicController@index')->name('index');
 Route::get('/about', 'PublicController@about')->name('about');
 
 Route::get('/contact', 'PublicController@contact')->name('contact');
+
 Route::post('/contact', 'PublicController@contactPost')->name('contactPost');
 
-Route::get('/post/{id}', 'PublicController@singlePost')->name('singlePost');
+Route::get('/post/{post}', 'PublicController@singlePost')->name('singlePost');
 
 Auth::routes();
 

@@ -28,8 +28,8 @@ class PublicController extends Controller
         //
     }
 
-    public function singlePost($id)
+    public function singlePost(Post $post)
     {
-        return view('singlePost');
+        return view('singlePost', compact('post'));
     }
 }
