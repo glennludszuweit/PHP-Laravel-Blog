@@ -2,6 +2,12 @@
     <nav class="sidebar-nav">
         <ul class="nav">
 
+            <li class="nav-item nav-dropdown">
+                <a href="{{ route('index') }}" class="nav-link">
+                    <i class="icon icon-home"></i> Homepage
+                </a>
+            </li>
+
             <!-- Normal User -->
             <li class="nav-title">User</li>
             <li class="nav-item">
