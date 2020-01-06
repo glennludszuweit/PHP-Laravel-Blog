@@ -3,7 +3,7 @@
         <i class="fa fa-bars"></i>
     </a>
 
-    <a class="navbar-brand pl-5" href="#">
+    <a class="navbar-brand pl-5" href="/">
         <img src="{{ asset('admin/assets/imgs/logo.svg') }}" alt="logo">
     </a>
 
