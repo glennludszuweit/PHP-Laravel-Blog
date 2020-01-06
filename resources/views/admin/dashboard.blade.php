@@ -1,2 +1,9 @@
 @extends('layouts.admin')
-Admin Dashboard
+
+@section('title')
+    Admin Dashboard
+@endsection
+
+@section('content')
+
+@endsection

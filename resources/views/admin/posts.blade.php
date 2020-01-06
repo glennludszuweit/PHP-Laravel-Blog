@@ -1,2 +1,9 @@
 @extends('layouts.admin')
-Admin Posts
+
+@section('title')
+    Admin Posts
+@endsection
+
+@section('content')
+
+@endsection

@@ -1,2 +1,9 @@
 @extends('layouts.admin')
-Admin Comments
+
+@section('title')
+    Admin Comments
+@endsection
+
+@section('content')
+
+@endsection

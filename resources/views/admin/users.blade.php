@@ -1,2 +1,9 @@
 @extends('layouts.admin')
-Admin Users
+
+@section('title')
+    Users Management
+@endsection
+
+@section('content')
+
+@endsection
