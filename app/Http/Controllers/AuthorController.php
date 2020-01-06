@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Http\Requests\CreatePost;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -32,5 +33,21 @@ class AuthorController extends Controller
     public function comments()
     {
         return view('author.comments');
+    }
+
+    public function newPost()
+    {
+        return view('author.newPost');
+    }
+
+    public function createPost(CreatePost $request)
+    {
+        $post = new Post();
+        $post->title = $request['title'];
+        $post->content = $request['content'];
+        $post->user_id = Auth::id();
+        $post->save();
+
+        return back()->with('success', 'Post successfully added!');
     }
 }

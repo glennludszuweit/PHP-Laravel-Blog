@@ -3,23 +3,27 @@
         <i class="fa fa-bars"></i>
     </a>
 
-    <a class="navbar-brand pl-5" href="/">
-        <img src="{{ asset('admin/assets/imgs/logo.svg') }}" alt="logo">
-    </a>
+{{--    <a class="navbar-brand" href="/">--}}
+{{--        <img src="{{ asset('admin/assets/imgs/logo.svg') }}" alt="logo">--}}
+{{--    </a>--}}
 
     <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
         <i class="fa fa-bars"></i>
     </a>
 
     <ul class="navbar-nav ml-auto">
+        @if(Auth::user()->author == true)
+            <li>
+                <a href="{{ route('newPost') }}" class="btn btn-sm btn-primary mr-3 rounded">Add new Post</a>
+            </li>
+        @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('admin/assets/imgs/avatar-1.png') }}" class="avatar avatar-sm" alt="logo">
+                <img src="{{ asset('admin/assets/imgs/avatar-1.png') }}" class="avatar avatar-xs" alt="logo">
                 <span class="small ml-1 d-md-down-none">{{ Auth::user()->name }}</span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-header">Account</div>
 
                 <a href="{{ route('userProfile') }}" class="dropdown-item">
                     <i class="fa fa-user"></i> Profile
