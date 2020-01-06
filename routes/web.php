@@ -12,13 +12,9 @@
 */
 
 Route::get('/', 'PublicController@index')->name('index');
-
 Route::get('/about', 'PublicController@about')->name('about');
-
 Route::get('/contact', 'PublicController@contact')->name('contact');
-
 Route::post('/contact', 'PublicController@contactPost')->name('contactPost');
-
 Route::get('/post/{post}', 'PublicController@singlePost')->name('singlePost');
 
 Auth::routes();
@@ -40,7 +36,7 @@ Route::prefix('author')->group(function () {
 
 Route::prefix('admin')->group(function() {
     Route::get('dashboard', 'AdminController@dashboard')->name('adminDashboard');
-    Route::get('comments', 'AdminController@comments')->name('adminComments');
     Route::get('posts', 'AdminController@posts')->name('adminPosts');
+    Route::get('comments', 'AdminController@comments')->name('adminComments');
     Route::get('users', 'AdminController@users')->name('adminUsers');
 });
