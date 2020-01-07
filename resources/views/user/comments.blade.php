@@ -8,7 +8,7 @@
     <div class="content">
         <div class="card">
             <div class="card-header bg-light">
-                Striped Rows
+                User Comments
             </div>
 
             <div class="card-body">
