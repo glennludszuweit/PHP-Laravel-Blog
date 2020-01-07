@@ -13,11 +13,11 @@ class CommentSeeder extends Seeder
     public function run()
     {
         DB::table('comments')->insert([
-            ['user_id' => 1, 'post_id' => 1, 'content' => 'Comment one content'],
-            ['user_id' => 1, 'post_id' => 2, 'content' => 'Comment two content'],
-            ['user_id' => 1, 'post_id' => 3, 'content' => 'Comment three content'],
-            ['user_id' => 1, 'post_id' => 4, 'content' => 'Comment four content'],
-            ['user_id' => 1, 'post_id' => 5, 'content' => 'Comment five content'],
+            ['user_id' => 6, 'post_id' => 13, 'content' => 'Comment one content'],
+            ['user_id' => 6, 'post_id' => 14, 'content' => 'Comment two content'],
+            ['user_id' => 6, 'post_id' => 15, 'content' => 'Comment three content'],
+            ['user_id' => 6, 'post_id' => 16, 'content' => 'Comment four content'],
+            ['user_id' => 6, 'post_id' => 17, 'content' => 'Comment five content'],
         ]);
     }
 }
