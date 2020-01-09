@@ -37,11 +37,8 @@
                                 <td>{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</td>
                                 <td>{{ \Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</td>
                                 <td>
-                                    <form id="deleteUser-{{ $user->id }}" action="{{ route('adminDeleteUser', $user->id) }}" method="post">
-                                        @csrf
-                                        <a href="{{ route('adminEditUser', $user->id) }}" class="btn btn-sm btn-warning rounded mt-1">Edit</a>
-                                        <a href="#" onclick="document.getElementById('deleteUser-{{ $user->id }}').submit()" class="btn btn-sm btn-danger rounded mt-1">Remove</a>
-                                    </form>
+                                    <a href="{{ route('adminEditUser', $user->id) }}" class="btn btn-sm btn-warning rounded mt-1">Edit</a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteUserModal-{{ $user->id }}" class="btn btn-sm btn-danger rounded mt-1">Remove</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -51,6 +48,28 @@
             </div>
         </div>
     </div>
+    @foreach($users as $user)
+        <!-- Modal -->
+        <div class="modal fade" id="deleteUserModal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title" id="exampleModalLabel">You are about to delete {{ $user->name }}.</p>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded" data-dismiss="modal">Cancel</button>
+                        <form id="deleteUser-{{ $user->id }}" action="{{ route('adminDeleteUser', $user->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger rounded">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
 
 

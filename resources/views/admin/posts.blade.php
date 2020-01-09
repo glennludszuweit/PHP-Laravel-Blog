@@ -46,11 +46,8 @@
                                 <td>{{ \Carbon\Carbon::parse($post->updated_at)->diffForHumans() }}</td>
                                 <td>{{ $post->comments->count() }}</td>
                                 <td>
-                                    <form id="deletePost-{{ $post->id }}" action="{{ route('adminDeletePost', $post->id) }}" method="post">
-                                        @csrf
-                                        <a href="{{ route('adminEditPost', $post->id) }}" class="btn btn-sm btn-warning rounded mt-1">Edit</a>
-                                        <a href="#" onclick="document.getElementById('deletePost-{{ $post->id }}').submit()" class="btn btn-sm btn-danger rounded mt-1">Remove</a>
-                                    </form>
+                                    <a href="{{ route('adminEditPost', $post->id) }}" class="btn btn-sm btn-warning rounded mt-1">Edit</a>
+                                    <a href="#" data-toggle="modal" data-target="#deletePostModal-{{ $post->id }}" class="btn btn-sm btn-danger rounded mt-1">Remove</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -60,5 +57,27 @@
             </div>
         </div>
     </div>
+    @foreach($posts as $post)
+        <!-- Modal -->
+        <div class="modal fade" id="deletePostModal-{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title" id="exampleModalLabel">You are about to delete "{{ $post->title }}".</p>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded" data-dismiss="modal">Cancel</button>
+                        <form id="deletePost-{{ $post->id }}" action="{{ route('adminDeletePost', $post->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger rounded">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
 
