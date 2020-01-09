@@ -50,7 +50,7 @@ class AuthorController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        return redirect('/author/posts')->with('success', 'Post successfully added!');
+        return back()->with('success', 'Post successfully added!');
     }
 
     public function editPost($id)
@@ -66,7 +66,7 @@ class AuthorController extends Controller
         $post->content = $request['content'];
         $post->save();
 
-        return redirect('/author/posts')->with('success', "Post updated!");
+        return back()->with('success', "Post updated!");
     }
 
     public function deletePost($id)

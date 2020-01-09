@@ -33,12 +33,12 @@
                 </li>
                 <li class="nav-item nav-dropdown">
                     <a href="{{ route('authorPosts') }}" class="nav-link {{ Route::currentRouteName() == 'authorPosts' ? 'active' : '' }}">
-                        <i class="icon icon-paper-clip"></i> Posts
+                        <i class="icon icon-paper-clip"></i> My Posts
                     </a>
                 </li>
                 <li class="nav-item nav-dropdown">
                     <a href="{{ route('authorComments') }}" class="nav-link {{ Route::currentRouteName() == 'authorComments' ? 'active' : '' }}">
-                        <i class="icon icon-book-open"></i> Comments
+                        <i class="icon icon-book-open"></i> My Comments
                     </a>
                 </li>
             @endif
@@ -48,17 +48,17 @@
                 <li class="nav-title">Admin</li>
                 <li class="nav-item nav-dropdown">
                     <a href="{{ route('adminDashboard') }}" class="nav-link {{ Route::currentRouteName() == 'adminDashboard' ? 'active' : '' }}">
-                        <i class="icon icon-speedometer"></i> Dashboard
+                        <i class="icon icon-speedometer"></i> Admin Dashboard
                     </a>
                 </li>
                 <li class="nav-item nav-dropdown">
                     <a href="{{ route('adminPosts') }}" class="nav-link {{ Route::currentRouteName() == 'adminPosts' ? 'active' : '' }}">
-                        <i class="icon icon-paper-clip"></i> Posts
+                        <i class="icon icon-paper-clip"></i> All Posts
                     </a>
                 </li>
                 <li class="nav-item nav-dropdown">
                     <a href="{{ route('adminComments') }}" class="nav-link {{ Route::currentRouteName() == 'adminComments' ? 'active' : '' }}">
-                        <i class="icon icon-book-open"></i> Comments
+                        <i class="icon icon-book-open"></i> All Comments
                     </a>
                 </li>
                 <li class="nav-item nav-dropdown">
