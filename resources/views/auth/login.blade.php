@@ -3,7 +3,6 @@
 @section('title') Login @endsection
 
 @section('content')
-    @include('includes.navigation')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5">

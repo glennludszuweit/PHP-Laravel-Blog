@@ -2,11 +2,14 @@
 
 @section('content')
 
+
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{ asset('assets/img/post-bg.jpg') }}')">
-    <div class="overlay"></div>
+<header class="container-md mb-5 py-5" style="background-image: url('{{ asset('assets/img/post-bg.jpg') }}')"></header>
+
+<!-- Post Content -->
+<article>
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading">
                     <h1>{{ $post->title }}</h1>
@@ -16,18 +19,12 @@
                 </div>
             </div>
         </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 {!! nl2br($post->content) !!}
             </div>
         </div>
-        <div class="comments">
+        <div class="comments mt-5">
             <hr>
             <h3>Comments</h3>
             @foreach($post->comments as $comment)
