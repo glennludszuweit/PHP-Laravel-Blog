@@ -27,6 +27,7 @@ class UserController extends Controller
         }
         $chart->dataset('Comments', 'line', $comments);
         $chart->labels($days);
+
         return view('user.dashboard', compact('chart'));
     }
 
