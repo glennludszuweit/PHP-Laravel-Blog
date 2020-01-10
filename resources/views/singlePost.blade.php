@@ -12,7 +12,7 @@
                 <div class="post-heading">
                     <h1>{{ $post->title }}</h1>
                     <span class="meta">by {{ $post->user->name }}
-{{--              on {{ date_format($post->created_at, 'F d, Y') }}--}}
+              on {{ date_format($post->created_at, 'F d, Y') }}
                     </span>
                 </div>
             </div>

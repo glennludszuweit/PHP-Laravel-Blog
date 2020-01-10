@@ -15,7 +15,7 @@ class PublicController extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(1);
+        $posts = Post::orderBy('updated_at', 'DESC')->paginate(10);;
         return view('welcome', compact('posts'));
     }
 

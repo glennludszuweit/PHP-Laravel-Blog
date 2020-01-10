@@ -27,8 +27,8 @@
                         @foreach($comments as $comment)
                             <tr>
                                 <td>{{ $comment->id }}</td>
-                                <td><a href="{{ route('singlePost', $comment->id) }}">{{ $comment->post->title }}</a></td>
-                                <td><a href="{{ route('singlePost', $comment->id) }}">{{ str_limit($comment->content, 20) }}</a></td>
+                                <td><a href="{{ route('singlePost', $comment->post->id) }}">{{ $comment->post->title }}</a></td>
+                                <td><a href="{{ route('singlePost', $comment->post->id) }}">{{ str_limit($comment->content, 50) }}</a></td>
                                 <td>{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</td>
                                 <td>
                                     <a  href="#" style="color: red;" data-toggle="modal" data-target="#deleteCommentModal-{{ $comment->id }}">X</a>
