@@ -1,15 +1,15 @@
-@extends('layouts.auth')
+@extends('layouts.master')
 
 @section('title') Login @endsection
 
 @section('content')
+    <header class="container-md mb-5 py-5" style="background-image: url('{{ asset('assets/img/post-bg.jpg') }}')"></header>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <div class="card p-4">
-                    <div class="card-header text-center text-uppercase h4 font-weight-light">
-                        Login
-                    </div>
+                <div class="card p-4 mb-5">
+                    <h4>Login</h4>
+
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
                         <div class="card-body py-5">
@@ -38,19 +38,14 @@
                                 <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
                             </div>
                         </div>
-
-                        <div class="card-footer">
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-primary px-5">{{ __('Login') }}</button>
                                 </div>
 
                                 <div class="col-6">
-                                    <a href="{{ route('password.request') }}" class="btn btn-link">{{ __('Forgot Your Password?') }}</a>
-                                </div>
-
-                                <div class="col-6">
-                                    <a href="{{ route('password.request') }}" class="btn btn-link">{{ __('Register') }}</a>
+                                    <a href="{{ route('password.request') }}" class="btn btn-link">{{ __('Forgot Password?') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -59,9 +54,7 @@
             </div>
             <div class="col-md-5">
                 <div class="card p-4">
-                    <div class="card-header text-center text-uppercase h4 font-weight-light">
-                        {{ __('Register') }}
-                    </div>
+                    <h4>Register</h4>
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
                         <div class="card-body py-5">
@@ -101,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="card-footer">
+                        <div>
                             <button type="submit" class="btn btn-success btn-block">{{ __('Create Account') }}</button>
                         </div>
                     </form>

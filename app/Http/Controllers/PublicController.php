@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublicController extends Controller
 {
@@ -14,7 +15,7 @@ class PublicController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(1);
         return view('welcome', compact('posts'));
     }
 
