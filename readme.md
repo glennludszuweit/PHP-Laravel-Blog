@@ -1,1 +1,1 @@
-This is a laravel Blog
+This is a laravel Blog with a webshop.
