@@ -3,13 +3,13 @@
         <ul class="nav">
 
             <li class="nav-item nav-dropdown">
-                <a href="{{ route('index') }}" class="nav-link">
+                <a href="{{ route('home') }}" class="nav-link">
                     <i class="icon icon-home"></i> Homepage
                 </a>
             </li>
 
             <!-------------------------------------- Normal User ----------------------------------------------->
-{{--            @if(Auth::user()->author == false && Auth::user()->admin == false)--}}
+            @if(Auth::user()->author == false && Auth::user()->admin == false)
             <li class="nav-title">User</li>
             <li class="nav-item">
                 <a href="{{ route('userDashboard') }}" class="nav-link {{ Route::currentRouteName() == 'userDashboard' ? 'active' : '' }}">
@@ -21,7 +21,7 @@
                     <i class="icon icon-book-open"></i> Comments
                 </a>
             </li>
-{{--            @endif--}}
+            @endif
 
             <!---------------------------------------- Author --------------------------------------------------->
             @if(Auth::user()->author == true)

@@ -30,7 +30,7 @@
                         </a>
                     </li>
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; Glenn Ludszuweit</p>
+                <p class="copyright text-muted">Copyright &copy; Serge Kreutz</p>
             </div>
         </div>
     </div>

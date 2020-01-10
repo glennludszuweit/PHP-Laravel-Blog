@@ -41,7 +41,7 @@
                         @foreach($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
-                                <td><a href="{{ route('singlePost', $post->id) }}">{{ str_limit($post->title, 20) }}</a></td>
+                                <td><a href="{{ route('singlePost', $post->id) }}">{{ str_limit($post->title, 50) }}</a></td>
                                 <td>{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</td>
                                 <td>{{ \Carbon\Carbon::parse($post->updated_at)->diffForHumans() }}</td>
                                 <td>{{ $post->comments->count() }}</td>

@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'PublicController@index')->name('index');
+Route::get('/', 'PublicController@home')->name('home');
+Route::get('/blog', 'PublicController@index')->name('index');
 Route::get('/about', 'PublicController@about')->name('about');
 Route::get('/contact', 'PublicController@contact')->name('contact');
 Route::post('/contact', 'PublicController@contactPost')->name('contactPost');
@@ -22,6 +23,7 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::prefix('user')->group(function () {
+    Route::post('new-comment', 'UserController@newComment')->name('newComment');
     Route::get('dashboard', 'UserController@dashboard')->name('userDashboard');
     Route::get('comments', 'UserController@comments')->name('userComments');
         Route::post('comment/{id}/delete', 'UserController@deleteComment')->name('deleteComment');

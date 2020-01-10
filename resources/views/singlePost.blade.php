@@ -13,9 +13,10 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading">
                     <h1>{{ $post->title }}</h1>
-                    <span class="meta">Posted by
+                    <span class="meta">
               <a href="#">{{ $post->user->name }}</a>
-              on {{ date_format($post->created_at, 'F d, Y') }}</span>
+{{--              on {{ date_format($post->created_at, 'F d, Y') }}--}}
+                    </span>
                 </div>
             </div>
         </div>
@@ -29,9 +30,30 @@
             <h3>Comments</h3>
             @foreach($post->comments as $comment)
                 <hr>
-                <small>by {{ $comment->user->name }} on {{ date_format($comment->created_at, 'F d, Y') }}</small>
+                <small>by {{ $comment->user->name }}
+                    on {{ date_format($comment->created_at, 'F d, Y') }}
+                </small>
                 <p>{{ $comment->content }}</p>
             @endforeach
+            @if(Auth::check())
+                <form action="{{ route('newComment') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Leave your comment..." name="comment" id="" cols="30" rows="10"></textarea>
+                        <input type="hidden" name="post" value="{{ $post->id }}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                    </div>
+                </form>
+                @else
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Leave your comment..." name="comment" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <a href="{{ route('login') }}" type="submit" class="btn btn-primary">Login to post Comment</a>
+                </div>
+            @endif
         </div>
     </div>
 </article>
