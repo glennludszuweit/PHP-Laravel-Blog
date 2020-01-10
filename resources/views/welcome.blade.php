@@ -37,7 +37,7 @@
             </div>
             <hr>
             @endforeach
-            
+
             {{ $posts->links('vendor.pagination.paginate') }}
             <!-- Pager -->
 {{--            <div class="clearfix">--}}

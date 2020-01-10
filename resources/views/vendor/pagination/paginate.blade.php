@@ -7,7 +7,7 @@
             </div>
         @else
             <div class="clearfix">
-                <a class="btn btn-primary float-left" href="{{ $paginator->previousPageUrl() }}" rel="prev"><<<</a>
+                <a class="btn btn-primary float-left" href="{{ $paginator->previousPageUrl() }}" rel="prev"><i class="fa fa-arrow-left"></i></a>
             </div>
         @endif
 
@@ -33,7 +33,7 @@
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
             <div class="clearfix">
-                <a class="btn btn-primary float-right" href="{{ $paginator->nextPageUrl() }}" rel="next">>>></a>
+                <a class="btn btn-primary float-right" href="{{ $paginator->nextPageUrl() }}" rel="next"><i class="fa fa-arrow-right"></i></a>
             </div>
         @else
             <div class="clearfix disabled" aria-disabled="true">
