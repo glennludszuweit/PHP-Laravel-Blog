@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Add new Product
+    Edit this Product
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header bg-light">
-                            New Product
+                            Edit Product
                         </div>
                         @if(Session::has('success'))
                             <div class="alert alert-success">
@@ -27,7 +27,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('adminNewProductPost') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('adminEditProductPost', $product->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -36,27 +36,28 @@
                                             <label for="thumbnail" class="form-control-label">Thumbnail</label>
                                             <input type="file" name="thumbnail" id="thumbnail" class="form-control" placeholder="Product thumbnail">
                                         </div>
+                                        <img src="{{ asset($product->thumbnail) }}" width="300">
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 mt-3">
                                         <div class="form-group">
                                             <label for="title" class="form-control-label">Title</label>
-                                            <input name="title" id="title" class="form-control" placeholder="Product title">
+                                            <input name="title" value="{{ $product->title }}" id="title" class="form-control" placeholder="Product title">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea name="description" id="description" class="form-control" rows="5" placeholder="Product description"></textarea>
+                                            <textarea name="description" id="description" class="form-control" rows="5" placeholder="Product description">{{ $product->description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="price" class="form-control-label">Price</label>
-                                            <input name="price" id="price" class="form-control" placeholder="Product price in €">
+                                            <input name="price" value="{{ $product->price }}" id="price" class="form-control" placeholder="Product price in €">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-success rounded">Add this Product</button>
+                                        <button type="submit" class="btn btn-success rounded">Save Changes</button>
                                     </div>
                                 </div>
                             </div>

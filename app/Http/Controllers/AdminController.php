@@ -158,13 +158,35 @@ class AdminController extends Controller
         return back()->with('success', 'Product Added!');
     }
 
-    public function editProduct()
+    public function editProduct($id)
     {
-
+        $product = Product::findOrFail($id);
+        return view('admin.editProduct', compact('product'));
     }
 
-    public function editProductPost(Request $request)
+    public function editProductPost(Request $request, $id)
     {
+        $this->validate($request, [
+            'title' => 'required|string',
+            'thumbnail' => 'file',
+            'description' => 'required',
+            'price' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/'
+        ]);
 
+        $product = Product::findOrFail($id);
+        $product->title = $request['title'];
+        $product->description = $request['description'];
+        $product->price = $request['price'];
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            $fileName = $thumbnail->getClientOriginalName();
+            $thumbnail->move('product-images', $fileName);
+            $product->thumbnail = 'product-images/' . $fileName;
+        }
+
+        $product->save();
+
+        return back()->with('success', 'Product Updated!');
     }
 }
